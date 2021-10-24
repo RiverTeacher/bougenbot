@@ -101,7 +101,7 @@ header #logo img {
 ---------------------------------------------------------------------------*/
 #contents {
 	overflow: hidden;
-	padding: 50px 3%;
+	padding: 50px 5%;
 }
 #contents section + section {
 	padding-top: 50px;
@@ -123,7 +123,7 @@ header #logo img {
 	margin-bottom: 20px;
 	clear: both;
 	padding: 0 20px;
-	font-size: 18px;		/*文字サイズ*/
+	font-size: 25px;		/*文字サイズ*/
 	text-align: center;		/*文字をセンタリング*/
 	letter-spacing: 0.1em;	/*文字間隔を少しだけ広くする指定*/
 	border: 2px solid #fff;	/*枠線の幅、線種、色*/
@@ -178,7 +178,7 @@ footer {
 	text-align: center;
 	background: #000;	/*背景色*/
 	color: #fff;		/*文字色*/
-	font-size: 85%;		/*文字サイズ*/
+	font-size: 90%;		/*文字サイズ*/
 }
 footer a {
 	color: #fff;	/*リンクテキストの文字色*/
@@ -336,7 +336,7 @@ header #logo img {
 /*コンテナー（headerとfooterをのぞくブロックを囲むブロック）
 ---------------------------------------------------------------------------*/
 #container {
-	font-size: 12px;
+	font-size: 16px;
 	font-size: 2.93vw;
 }
 
