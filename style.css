@@ -13,7 +13,7 @@ body {
 	padding: 0px;
 	color: #fff;	/*全体の文字色*/
 	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
-	font-size: 16px;	/*文字サイズ*/
+	font-size: 32px;	/*文字サイズ*/
 	line-height: 2;		/*行間*/
 	background: #005c2b;	/*背景色*/
 	-webkit-text-size-adjust: none;
@@ -86,7 +86,7 @@ header #logo img {
 }
 /*マウスオン時の指定*/
 #menubar li a:hover {
-	border-bottom: 2px solid #fff;	/*下線の幅、線種、色*/
+	border-bottom: 3px solid #fff;	/*下線の幅、線種、色*/
 	letter-spacing: 0.1em;			/*文字間隔を少しだけ広くする指定。そのままがいいならこの１行を削除。*/
 }
 
