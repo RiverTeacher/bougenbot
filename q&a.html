@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Q&A</title>
+</head>
+<body>
+	<h1 style="text-align: center;">Q&A 質問あれば問い合わせてください</h1>
+	<style type="text/css">
+		.cp_qa *, .cp_qa *:after, .cp_qa *:before {
+	font-family: 'FontAwesome', sans-serif;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.cp_qa dt,.cp_qa dd {
+	position: relative;
+	padding: 0.5em;
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+	border-radius: 0.3em;
+}
+.cp_qa dt {
+	margin: 0 3em 1em 3em;
+	background: #ffe0b2;
+}
+.cp_qa dd {
+	margin: 0 3em 3em 3em;
+	background: #b2ebf2;
+}
+/* 吹き出し▶︎ */
+.cp_qa dt::before,.cp_qa dd::before{
+	position: absolute;
+	z-index: 99;
+	top: 0.5em;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	content: '';
+	border-style: solid;
+}
+/* 質問吹き出し▶︎ */
+.cp_qa dt::before {
+	left: -0.5em;
+	border-width: 5px 8.7px 5px 0;
+	border-color: transparent #ffe0b2 transparent transparent;
+}
+/* 答え吹き出し▶︎ */
+.cp_qa dd::before {
+	right: -0.5em;
+	border-width: 5px 0 5px 8.7px;
+	border-color: transparent transparent transparent #b2ebf2;
+}
+/* ?!アイコン */
+.cp_qa dt::after,.cp_qa dd::after {
+	font-size: 1.2em;
+	position: absolute;
+	top: 0;
+	color: #ffffff;
+	border-radius: 50%;
+	display: inline-block;
+	width: 1.5em;
+	height: 1.5em;
+	line-height: 1.2em;
+}
+/* ?アイコン */
+.cp_qa dt::after {
+	left: -2.5em;
+	margin: 0 0.5em 0 0;
+	padding: 0.2em 0.4em;
+	content: '\f128';
+	background: #f57c00;
+}
+/* !アイコン */
+.cp_qa dd::after {
+	right: -2.5em;
+	margin: 0 0 0 0.5em;
+	padding: 0.2em 0.55em;
+	content: '\f12a';
+	background: #0097a7;
+}
+	</style>
+<div class="cp_qa">
+<dl>
+	<dt>暴言BOTを周りの人に共有していいですか？</dt>
+	<dd>ええで。</dd>
+	<dt>暴言BOT安心メールが届きません！</dt>
+	<dd>迷惑メールに振り分けられてる可能性が高いで</dd>
+	<dt>死んでください</dt>
+	<dd>むりやで</dd>
+	<dt>skype荒らしてもいい？</dt>
+	<dd>誹謗中傷とかしなければ基本おけ</dd>
+	<dt>skype勝手に使っていいですか？</dt>
+	<dd>ええで</dd>
+	<dt>暴言BOTにより不利益が出ました</dt>
+	<dd>知るかバーカ</dd>
+	<dt>問い合わせるにはどうしたら？</dt>
+	<dd><a href="https://riverteacher.github.io/bougenbot/index.html#contact">ここ</a>やで</dd>
+	<dt>アイコンとか勝手に使っていい？</dt>
+	<dd><font color="blue">Dropbox</font>にあるやつなら全部フリーそれ以外は許可ください</dd>
+	<dt>サービス終了予定は</dt>
+	<dd>今のとこしらね。２代目がどれだけ生き延びるか...</dd>
+
+</dl>
+</div>
+</body>
+</html>
