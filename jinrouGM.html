@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GMパネル</title>
+	<meta http-equiv="refresh" content="30">
+</head>
+<body>
+<style type="text/css">
+	/* コピーボタン */
+.copy_btn {
+  width:80%!important;
+  padding: 12px 0;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  color:#ffffff;
+  font-weight:bold;
+  background:#000000;
+  border: solid 2px #000000;
+  border-radius: 3px;
+  transition: .4s;
+  text-align: center;
+}
+ 
+.copy_btn:hover {
+  background: #7fffd4;
+  color: #000000;
+}
+.copy_btn:hover {
+	cursor: pointer;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- ↓クリップボード操作のために使用するjsを読み込む　( https://clipboardjs.com/ ) -->
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.13/clipboard.min.js"></script>
+ 
+<script>
+var clipboard = new Clipboard('.copy_btn');    //clipboard.min.jsが動作する要素をクラス名で指定
+ 
+//クリックしたときの挙動
+$(function(){
+    $('.copy_btn').click(function(){
+        $(this).addClass('copied');    //ボタンの色などを変更するためにクラスを追加
+        $(this).text('コピーしました。skypeにペーストしてください。');    //テキストの書き換え
+    });
+});
+</script>
+<center>
+	<h1>ゲームマスター用ツールパネル</h1>
+</center>
+<div class="copy_btn" data-clipboard-text="これよりゲームを開始します。
+これより役職配布を行いますので、全員ロイロノートに移動をお願いいたします。[！]ルール違反者はこのチャットルームからアクセス禁止処置、酷ければ授業さぼりIDの凍結処置をとらせていただきます。ルール違反を行わずフェアなプレイを心掛けてください。">開始前コピー</div>
+<div class="copy_btn" data-clipboard-text="おはようございます。今晩の死者は〇〇さんです☠亡くなった方は発言しないようお願いいたします。これより〇分間の議論を行い、村から追放する人を一名投票で確定してください。票数が同じ場合はその日は追放を行いません。">朝コピー</div>
+<div class="copy_btn" data-clipboard-text="[！]時間になりました。議論を終了してください。話すのやめろと言っても話す日本語の理解できない馬鹿はこのルームからアクセス禁止処置をとらせていただきます。✴これより追放投票を行います。死者以外はロイロに移動して「提出箱」に追放したい人のフルネームをかいて提出してください。">追放コピー</div>
+<div class="copy_btn" data-clipboard-text="投票の結果〇〇さんが村から追放されました。追放された方は発言しないようお願いいたします。">追放者発表コピー</div>
+<div class="copy_btn" data-clipboard-text="夜の行動を行います。村人以外の方はロイロに行きゲームマスターのアカウントにテキストを送信してください。⚠ゲームマスターのアカウントは、s〇〇です。送信先を間違えないようにお願いいたします。人狼の場合は「襲撃（襲撃先）」とでも送ってください。">夜コピー</div>
+<div class="copy_btn" data-clipboard-text="人狼陣営が全滅したため村人陣営の勝利となります。">村勝利コピー</div>
+<div class="copy_btn" data-clipboard-text="村人陣営が人狼陣営と同数またはそれ以下になったためそのあとどうなったかは分かるよね？人狼陣営の勝利です。">人狼勝利コピー</div>
+
+
+</body>
+</html>
