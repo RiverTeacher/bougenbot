@@ -12,11 +12,52 @@
       location.href = UserInput + ".html";
    }
 </script>
+<style type="text/css">
+   .btn-square-soft {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #FFFF;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#26A69A 0%, #26A69A 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn-square-soft:active {
+  /*押したとき*/
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);/*沈むように*/
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+}
+.btn-gradient-radius {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+}
+
+.btn-gradient-radius:hover {
+  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+</style>
 <div style="text-align: center;">
    <img src="n020214271.png"><br>
 <input type="button" value="アカウントをお持ちの場合はこちらからログイン" onclick="gate();">
 </div><br><br>
 <center>
-<a href="new.html">アカウント作成</a></imput><br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSd4JzbMr1s5l-r4pa5hAZbTqI6EWZ-zAauRhmNvIhn16NPF-Q/viewform?usp=sf_link">アカウント削除はこちら</a></center>
+<a href="https://riverteacher.github.io/bougenbot/account/new.html" class="btn-square-soft"><small>  アカウント作成はこちら</small></a><br><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSd4JzbMr1s5l-r4pa5hAZbTqI6EWZ-zAauRhmNvIhn16NPF-Q/viewform?usp=sf_link" class="btn-gradient-radius">アカウント削除はこちら</a>
+
 </body>
 </html>
