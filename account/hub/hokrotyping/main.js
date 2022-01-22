@@ -5,7 +5,7 @@ window.addEventListener('load', init);
 // Available Levels
 const levels = {
   easy: 5,
-  medium: 7,
+  medium: 1,
   hard: 5
 };
 
@@ -34,7 +34,7 @@ const words = [
   '女子リボン',
   'くちゃっくちゃ',
   'SDGsじゃないか',
-  'そういうことですね',
+  'そういうことですねー',
   '綺麗な景色ですね。でも、こういう時はなんて言うか知ってる？そう、君の方が綺麗ですねって',
   'バレンタインですね。ロマンチックな朝学ですね',
   '市野さんが、大好きです',
@@ -99,6 +99,8 @@ function startMatch() {
 function matchWords() {
   if (wordInput.value === currentWord.innerHTML) {
     message.innerHTML = '成功';
+     var voice = new Audio('success.mp3');
+        voice.play();
     return true;
   } else {
     message.innerHTML = '';
