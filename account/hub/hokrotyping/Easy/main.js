@@ -5,7 +5,7 @@ window.addEventListener('load', init);
 // Available Levels
 const levels = {
   easy: 5,
-  medium: 10,
+  medium: 15,
   hard: 5
 };
 
@@ -99,6 +99,8 @@ function startMatch() {
 function matchWords() {
   if (wordInput.value === currentWord.innerHTML) {
     message.innerHTML = '成功';
+     var voice = new Audio('success.mp3');
+        voice.play();
     return true;
   } else {
     message.innerHTML = '';
