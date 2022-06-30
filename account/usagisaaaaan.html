@@ -5,6 +5,50 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="noindex,nofollow">
 	<meta http-equiv="refresh" content="500; URL=playgame.html">
+  <style type="text/css">
+    .loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #00bfff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+  </style>
 	<title>お待ちください</title>
 </head>
 <body onload="delayExec();">
@@ -46,10 +90,12 @@ img {
 }
 </style>
 <div style="text-align: center;">
-	<h1>異なるサーバーに接続しています。</h1>
+	<h1>異なるサーバーに接続しています。</h1><br>
+  
   <br><h3 style="color: pink;">うさ鯖版サーバーに再接続しています。</h3>
   <br><h3><font color="blue">ゲストユーザー</font>で参加してください。</h3>
   <br><h4 style="color: red;">不正行為を繰り返すとアカウントが死にます。</h4>
+  <br><div class="loader">Loading...</div>
 <div class="progress"> 
   <div class="progress__bar"></div>
 </div>
