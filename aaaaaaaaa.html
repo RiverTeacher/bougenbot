@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCDKGOV76UlB7vQvAJvMME6DkEqjwD6s0E",
+    authDomain: "bougenbot.firebaseapp.com",
+    projectId: "bougenbot",
+    storageBucket: "bougenbot.appspot.com",
+    messagingSenderId: "333939721709",
+    appId: "1:333939721709:web:16553dc5ff9e70429ad3e4"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  //新規登録処理
+register.addEventListener('click', function(e) {
+  var mailAddress = document.getElementById('mailAddress').value;
+  var password = document.getElementById('password').value;
+  
+  firebase.auth().createUserWithEmailAndPassword(mailAddress, password)
+  .catch(function(error) {
+    alert('登録できません（' + error.message + '）');
+  });
+});
+//ログイン処理
+login.addEventListener('click', function(e) {
+  var mailAddress = document.getElementById('mailAddress').value;
+  var password = document.getElementById('password').value;
+  
+  firebase.auth().signInWithEmailAndPassword(mailAddress, password)
+  .catch(function(error) {
+    alert('ログインできません（' + error.message + '）');
+  });
+});
+//認証状態の確認
+firebase.auth().onAuthStateChanged(function(user) {
+  if(user) {
+    //ログイン状態
+    alert("ログインに成功しました");
+  }else{
+    //ログアウト状態
+  }
+});
+</script>
+    <div>
+        メールアドレス<input id="mailAddress" type="mailAddress" required/>
+      </div>
+      <div>
+        パスワード<input id="password" type="password" required/>
+      </div>
+        <button id="login">ログイン</button>
+        <button id="register">新規登録</button>
+</body>
+</html>
