@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ログイン</title>
+  <script type="text/javascript">
+   function gate() {
+      var UserInput = prompt("ユーザーIDを入力してください。","");
+      location.href = UserInput + ".html";
+   }
+     function guest() {
+window.location.replace("guest.html"); 
+   }
+</script>
+<style type="text/css">
+   .btn-square-soft {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #FFFF;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#26A69A 0%, #26A69A 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn-square-soft:active {
+  /*押したとき*/
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);/*沈むように*/
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+}
+.btn-gradient-radius {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+  width: 200px;
+}
+
+.btn-gradient-radius:hover {
+  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+</style>
+</head>
+<body>
+<center>
+	<img src="https://cdn.glitch.global/907dd19d-4322-4790-b435-6bed029ca922/unblockyoutube.png?v=1675687672002" width="200px">
+	<h1>ログインしてください。</h1><br>
+	<input type="button" value="アカウントをお持ちの場合はこちらからログイン" onclick="gate();" style="background-color:#333333; color: white; width:330px;height:50px ">
+  <br><br>
+    <input type="button" value="ゲストとしてログイン" class="btn-square-soft" onclick="guest();">
+    <br><br>
+    <a href="https://form.os7.biz/f/50543c84/">アカウント作成</a><br><br>
+</center>
+</body>
+</html>
