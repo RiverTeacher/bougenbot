@@ -3,24 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex">
-	<meta http-equiv="Refresh" content="120;URL=finish.html">
+	<meta http-equiv="Refresh" content="1800;URL=finish.html">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>[guest]サービス利用中</title>
+	<title>[standard]サービス利用中</title>
 	<style type="text/css">
 		iframe {
   border: none;
 }
+
 	</style>
+	    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 	<script>
-    function guest() {
-        alert('当サイトをご利用いただきまして誠にありがとうございます。\nあなたのアカウントタイプは「ゲストアカウント」ですので、今から2分間連続でご利用いただけます。\nゲストアカウントは当サイトがどういうものであるかをご確認いただくためのものとなっておりますので実際の利用には推奨されません。');
+		function standard() {
+        alert('当サイトをご利用いただきまして誠にありがとうございます。\nあなたのアカウントタイプは「ゲスト」ですので、今から2分間連続でご利用いただけます。');
     }
+$(function(){
+        var time = 120;
+        setInterval(function(){
+          time--;
+          $('#timer').text(time);
+        }, 1000);
+      });
 </script>
 </head>
-<body oncontextmenu="return false" onload="guest()">
+<body oncontextmenu="return false" onload="standard()">
 	<center>
-		<font color="green" size="7">ゲストアカウント使用中</font><br>
- <iframe src="https://even-rattle-hexagon.glitch.me/502error"　frameborder="no" width="1000px" height="700px"></iframe>
+		<font color="red" size="7">ゲストアカウント使用中</font>
+		<h2>連続使用可能時間終了まで<b><span id="timer" style="font-size: 40px; color: red;"></span></b>秒</h2>
+ <iframe src="https://even-rattle-hexagon.glitch.me"　frameborder="no" width="1000px" height="700px"></iframe>
 </center>
 </body>
 </html>
