@@ -5,6 +5,8 @@
 	<meta name="robots" content="noindex">
 	<meta http-equiv="Refresh" content="30;URL=index.html">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
 	<title>セッションオーバー</title>
 	<style type="text/css">
 		iframe {
@@ -13,9 +15,14 @@
 	</style>
 </head>
 <body oncontextmenu="return false">
+	 <audio autoplay  id="sound">
+  <source src="警告音2.mp3">
+  あなたのブラウザーは <code>audio</code> 要素をサポートしていません。
+</audio>
 	<center>
-		<font color="red" style="font-size: 100px;">使用終了</font><br>
-		<h2>継続使用可能時間が経過したため一度当サービスサーバーから切断致しました。<br>繰り返し使用をご希望されるユーザー様はお手数ですが再度ログインいただけると幸いです。</h2>
+		<font color="red" style="font-family: 'Noto Serif JP', serif; font-size: 100px;">使用終了</font><br>
+		<h2>継続使用可能時間が経過したため一度当サービスサーバーから切断致しました。<br>繰り返し使用をご希望されるユーザー様はお手数ですが再度ログインいただけると幸いです。<br>下の戻るボタンでログイン画面に戻ることができます。</h2>
+		<h3 style="color: red;">30秒後に強制的にログアウトされます。</h3>
 		<br>
 		<a href="index.html" style="font-size: 70px;">戻る</a>
 </body>
