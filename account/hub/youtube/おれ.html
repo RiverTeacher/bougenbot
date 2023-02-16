@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex">
-	<meta http-equiv="Refresh" content="1800;URL=finish.html">
+	<meta http-equiv="Refresh" content="3600;URL=finish.html">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>[standard]サービス利用中</title>
 	<style type="text/css">
@@ -17,10 +17,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 	<script>
 		function standard() {
-        alert('当サイトをご利用いただきまして誠にありがとうございます。\nあなたのアカウントタイプは「スタンダート」ですので、今から30分間連続でご利用いただけます。');
+        alert('当サイトをご利用いただきまして誠にありがとうございます。\nあなたのアカウントタイプは「活性化中アカウント」ですので、今から30分間連続でご利用いただけます。');
     }
 $(function(){
-        var time = 1800;
+        var time = 3600;
         setInterval(function(){
           time--;
           $('#timer').text(time);
@@ -30,7 +30,7 @@ $(function(){
 </head>
 <body oncontextmenu="return false" onload="standard()">
 	<center>
-		<font color="green" size="7">スタンダートアカウント使用中</font>
+		<font color="green" size="7">活性化中アカウント使用中</font>
 		<h2>連続使用可能時間終了まで<b><span id="timer" style="font-size: 40px; color: red;"></span></b>秒</h2>
  <iframe src="https://even-rattle-hexagon.glitch.me"　frameborder="no" width="1000px" height="700px"></iframe>
 </center>
