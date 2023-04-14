@@ -4,6 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>利用開始！</title>
+  
+  <script defer src="https://www.pushcode.jp/dist/js/pushcode.js"></script>
+<script defer type="module" src="https://www.pushcode.jp/dist/pushcode-components/index.esm.js"></script>
+<script defer type="module" src="https://www.pushcode.jp/dist/pushcode-components/pushcode-components.esm.js"></script>
+<script defer nomodule="" src="https://www.pushcode.jp/dist/pushcode-components/pushcode-components.js"></script>
+<script>
+window.addEventListener('load', function() {
+  try {
+    if (PushCode && PushCode.isSupport()) {
+      PushCode.init({ domainToken: '99adeef60303f9013316b00d15c96763e418a906d1a838127016a7adc6c2a105', userid: '' });
+      if (PushCode.components) {
+        PushCode.components.openSubscribeDialog();
+      } else {
+        PushCode.requestPermission();
+      }
+    }
+  }
+  catch (err) {
+    console.error(err);
+  }
+});
+</script>
+
 </head>
 <body oncontextmenu="return false">
   <style type="text/css">
