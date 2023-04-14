@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="refresh" content="5; URL=login.html">
-	<title>通信中</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="5; URL=login.html">
+  <!-- jqueryのインストール -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>通信中</title>
    
    <!-- <style>
         body {
@@ -220,6 +222,24 @@
     </style>
 </head>
 <body bgcolor="#212121">
+  <!--IPによってはリダイレクトされる-->
+   <script>
+    // IPアドレス取得用のAPIを呼び出し
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+      // 取得したIPアドレスを元に、位置情報取得用のAPIを呼び出し
+      $.getJSON("https://ipapi.co/" + data.ip + "/json/", function(locationData) {
+        // 国名と都道府県名を取得
+        var country = locationData.country_name;
+        var region = locationData.region;
+
+        // リダイレクト条件を判定
+        if (country !== "Japan" || (region !== "Aichi" && region !== "Saitama")) {
+          // 日本国外または愛知県・埼玉県以外の場合、リダイレクト
+          window.location.replace("block.html");
+        }
+      });
+    });
+  </script>
 <center>
     <div id="loading-wrapper" style="text-align: center;">
        <h1 style="color: white; font-size: 50px;">接続中</h1>
