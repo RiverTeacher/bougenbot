@@ -221,7 +221,7 @@
 } 
     </style>
 </head>
-<body bgcolor="#212121">
+<body onload="random();" bgcolor="#212121">
   <!--IPによってはリダイレクトされる-->
    <script>
     // IPアドレス取得用のAPIを呼び出し
@@ -239,12 +239,32 @@
         }
       });
     });
+
+  
+
   </script>
+
+<script>
+      // ランダムなテキストのリスト
+      var texts = [
+        "サーバーとのデータを照会です。少々お待ちください。",
+        "す〇ぷりすなー、偏差値42",
+        "扉開けて閉めない奴、LINEの友達21",
+        "いい天気ですね（多分）",
+        "動画の再生が遅くなった場合は動画の右下にある『解像度変更』を行ってください"
+      ];
+      
+      // ランダムなテキストを表示する
+      var randomIndex = Math.floor(Math.random() * texts.length);
+      document.getElementById("random-text").textContent = texts[randomIndex];
+    </script>
+
 <center>
     <div id="loading-wrapper" style="text-align: center;">
        <h1 style="color: white; font-size: 50px;">接続中</h1>
        <p style="color: white;">準備が完了次第自動でリダイレクトします。このままでおまちください。</p>
-       <h2 style="color: red;">通信環境によっては時間がかかる場合がございます。</h2>
+       <h2 style="color: red;">通信環境によっては時間がかかる場合がございます。</h2><br>
+       <p style="color: white;" id="random-text"></p>
         <div id="loading-content"></div>
       </div>
      
