@@ -222,27 +222,7 @@
     </style>
 </head>
 <body onload="random();" bgcolor="#212121">
-  <!--IPによってはリダイレクトされる-->
-   <script>
-    // IPアドレス取得用のAPIを呼び出し
-    $.getJSON("https://api.ipify.org?format=json", function(data) {
-      // 取得したIPアドレスを元に、位置情報取得用のAPIを呼び出し
-      $.getJSON("https://ipapi.co/" + data.ip + "/json/", function(locationData) {
-        // 国名と都道府県名を取得
-        var country = locationData.country_name;
-        var region = locationData.region;
-
-        // リダイレクト条件を判定
-        if (country !== "Japan" || (region !== "Aichi" && region !== "Saitama")) {
-          // 日本国外または愛知県・埼玉県以外の場合、リダイレクト
-          window.location.replace("block.html");
-        }
-      });
-    });
-
-  
-
-  </script>
+ 
 
 <script>
       // ランダムなテキストのリスト
