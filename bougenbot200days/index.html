@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サービス開始200日記念特設サイト</title>
+<style>
+	        body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    #countdown {
+        font-size: 24px;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    #playButton {
+        background-color: #3498db;
+        color: #fff;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+            .img {
+width:200px;
+height:200px;
+border-radius:50%;
+animation: rotate-anime 0.6s linear infinite;
+margin: 100px;
+}
+@keyframes rotate-anime {
+0%  {transform: rotate(0);}
+100%  {transform: rotate(360deg);}
+}
+
+        /* 最新情報テーブルのスタイル */
+        #latestInfo {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #latestInfo th, #latestInfo td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #latestInfo th {
+            background-color: #f2f2f2;
+        }
+
+        #latestInfo tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #latestInfo tr:hover {
+            background-color: #ddd;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+    	    <!-- admax -->
+<script src="https://adm.shinobi.jp/o/8fcd15a865aabb153770ee040deed235"></script>
+<!-- admax -->
+    	<img class="img" src="logo.png" width="100px">
+        <h1>サービス終了200日記念特設サイト</h1>
+        <p>期間限定公開の<font color="red">暴言BOTからよけるゲーム</font>2023年9月17日午前10時からプレイできます。</p>
+       <marquee scrollamount="10"> <div style="background-color: red; color: yellow;" id="countdownEnd"></div></marquee>
+        <div id="countdown"></div>
+        <h3 style="color: red;">必ずchromeやsafariなどの一般的なブラウザを使用してください。<br>LINEやInstagram等のブラウザではゲームの動作に影響を及ぼす可能性がございます。</h3>
+        <button id="playButton" onclick="checkTime()">今すぐプレイ！</button><br>
+                <!-- 最新情報テーブル -->
+        <marquee scrollamount="40"><h2>最新情報</h2></marquee>
+        <table id="latestInfo">
+            <tr>
+                <th>日時</th>
+                <th>内容</th>
+            </tr>
+            <tr>
+                <td>2023年09月17日 01:30</td>
+                <td>公式サイト公開</td>  
+                </tr>
+                <tr>         		
+                <td>2023年09月17日 01:00</td>
+                <td>ゲームサーバー開放</td>
+            </tr>
+            <tr>
+                <td>2023年09月17日 01:00</td>
+                <td>最終メンテナンス終了</td>
+            </tr>
+            <!-- ここに新しい情報を追加できます -->
+        </table>
+    </div>
+    </div>
+
+    <script>
+        // カウントダウンの終了時間を設定（2023年9月17日 8:00）
+        const endTime = new Date('2023-09-17T10:00:00').getTime();
+
+        // カウントダウンの更新
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = endTime - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById('countdown').innerHTML = '';
+                document.getElementById('playButton').disabled = false;
+            } else {
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`;
+            }
+        }
+
+        // ページ読み込み時にカウントダウンを更新
+        updateCountdown();
+
+        // カウントダウンを1秒ごとに更新
+        setInterval(updateCountdown, 1000);
+
+        // プレイボタンが押されたときの処理（前回のコードと同じ）
+        function checkTime() {
+            const now = new Date().getTime();
+            if (now < endTime) {
+                const timeLeft = endTime - now;
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                alert(`このゲームはまだプレイできません...\n残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`);
+            } else {
+                // プレイボタンが押されたときのリンク先
+                window.location.href = 'https://plicy.net/GameSPPlay/164071';
+            }
+        }
+    </script>
+
+        <script>
+        // サービス終了日時を設定（2023年10月1日 23:59）
+        const endTimeService = new Date('2023-10-01T00:00:00').getTime();
+
+        // サービス終了までのカウントダウンの更新
+        function updateCountdownEnd() {
+            const now = new Date().getTime();
+            const timeLeft = endTimeService - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById('countdownEnd').innerHTML = 'サービスは終了しました';
+            } else {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('countdownEnd').innerHTML = `【期間限定！】残り ${days} 日 ${hours} 時間 ${minutes} 分 ${seconds} 秒 でサービスを終了いたします。`;
+            }
+        }
+
+        // ページ読み込み時にカウントダウンを更新
+        updateCountdownEnd();
+
+        // カウントダウンを1秒ごとに更新
+        setInterval(updateCountdownEnd, 1000);
+
+        /* 前回のスクリプトは省略 */
+
+    </script>
+
+    <!-- admax -->
+<script src="https://adm.shinobi.jp/o/8fcd15a865aabb153770ee040deed235"></script>
+<!-- admax -->
+</body>
+</html>
