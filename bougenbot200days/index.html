@@ -136,7 +136,8 @@ margin: 100px;
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                document.getElementById('countdown').innerHTML = `残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`;
+		document.getElementById('countdown').innerHTML = `サービスを終了しました`;
+                //document.getElementById('countdown').innerHTML = `残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`;
             }
         }
 
@@ -155,7 +156,7 @@ margin: 100px;
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                alert(`このゲームはまだプレイできません...\n残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`);
+                alert(`このゲームは現在プレイできません...`);
             } else {
                 // プレイボタンが押されたときのリンク先
                 alert(`このゲームは現在プレイできません...残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`);
