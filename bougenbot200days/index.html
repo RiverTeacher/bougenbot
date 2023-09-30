@@ -90,7 +90,7 @@ margin: 100px;
        <marquee scrollamount="10"> <div style="background-color: red; color: yellow;" id="countdownEnd"></div></marquee>
         <div id="countdown"></div>
         <h3 style="color: red;">必ずchromeやsafariなどの一般的なブラウザを使用してください。<br>LINEやInstagram等のブラウザではゲームの動作に影響を及ぼす可能性がございます。</h3>
-        <button id="playButton" onclick="checkTime()">今すぐプレイ！</button><br>
+        <button id="playButton" onclick="checkTime()">サービス終了</button><br>
                 <!-- 最新情報テーブル -->
         <marquee scrollamount="40"><h2>最新情報</h2></marquee>
         <table id="latestInfo">
@@ -117,7 +117,7 @@ margin: 100px;
 
     <script>
         // カウントダウンの終了時間を設定（2023年9月17日 8:00）
-        const endTime = new Date('2023-09-17T10:00:00').getTime();
+        const endTime = new Date('2033-09-17T10:00:00').getTime();
 
         // カウントダウンの更新
         function updateCountdown() {
@@ -154,7 +154,7 @@ margin: 100px;
                 alert(`このゲームはまだプレイできません...\n残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`);
             } else {
                 // プレイボタンが押されたときのリンク先
-                window.location.href = 'https://plicy.net/GameSPPlay/164071';
+                alert(`このゲームは現在プレイできません...残り ${hours} 時間 ${minutes} 分 ${seconds} 秒お待ちください`);
             }
         }
     </script>
