@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Authentication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+     <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <div class="box">
+                        <h1 class="title is-3 has-text-centered">ログイン</h1>
+
+                        <script>
+                            // パスワードの入力を求めるアラート
+                            var password = prompt("パスワードを入力してください:");
+
+                            // 入力されたパスワードが "nagoya" と一致するか確認
+                            if (password === "nagoya") {
+                                alert("認証しました。");
+                            } else {
+                                alert("認証情報が一致しません。");
+                                // ログイン失敗時にbougenbot.vercel.appにリダイレクト
+                                window.location.href = "https://bougenbot.vercel.app";
+                            }
+                        </script>
+
+                        <div class="field">
+                            <label class="label">ユーザー名</label>
+                            <div class="control">
+                                <input class="input" type="text" id="inputValue" placeholder="ユーザー名を入力" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Recaptcha</label>
+                            <div class="control">
+                                <div class="g-recaptcha" data-sitekey="6LdAVxMeAAAAAN345aFBMj2Hc-LWR0hPs8dH45x1" data-callback="redirectToInputPage"></div>
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-success" onclick="handleLogin()">ログイン</button>
+                            </div>
+                        </div>
+
+                        <script>
+                            function handleLogin() {
+                                var inputValue = encodeURIComponent(document.getElementById("inputValue").value);
+                                var response = grecaptcha.getResponse();
+
+                                if (response.length === 0) {
+                                    alert("Recaptcha認証が必須です。");
+                                    return;
+                                }
+
+                                // ログイン確認メッセージ
+                                var confirmed = confirm(inputValue + " にログインしようとしています。IDが正しいことをご確認の上、OKを押してください。\nログインをすることで利用規約に同意したとみなされて既読未読に関わらず同意者と同等の権利と義務が発生します.");
+                                
+                                if (confirmed) {
+                                    // リダイレクトを行う（履歴は残らない）
+                                    window.location.replace(inputValue + ".html");
+                                } else {
+                                    // リダイレクトを行う（履歴は残らない）
+                                    window.location.replace("panel.html");
+                                }
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- admax -->
+<script src="https://adm.shinobi.jp/o/8fcd15a865aabb153770ee040deed235"></script>
+<!-- admax -->
+    </section>
+</body>
+</html>
