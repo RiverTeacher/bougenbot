@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>ユーザーページ</title>
+</head>
+<body>
+<script>
+                            // パスワードの入力を求めるアラート
+                            var password = prompt("パスワードを入力してください:");
+
+                            // 入力されたパスワードが "nagoya" と一致するか確認
+                            if (password === "nagoya") {
+                                alert("認証しました。");
+                            } else {
+                                alert("認証情報が一致しません。");
+                                // ログイン失敗時にbougenbot.vercel.appにリダイレクト
+                                window.location.href = "https://bougenbot.vercel.app";
+                            }
+                        </script>
+  <header>
+    <h1>ユーザーページ</h1>
+  </header>
+
+  <section id="user-info">
+    <img src="https://bougenbot.vercel.app/logo.png" alt="ユーザーアバター">
+    <h2>USER さん</h2>
+
+    <!-- ボタンをaタグに変更 -->
+    <a href="https://imaginary-charmed-airport.glitch.me" onclick="moveToChat()">チャットに移動する</a>
+    <p>チャットはデザインが崩れた場合、シークレットタブで入りなおすと改善される場合があります。</p>
+    <a href="https://questant.jp/q/U9A4ABJG" onclick="contact()">問い合わせ</a>
+    <a href="https://www.youtube.com/" target="_blank">YouTube (準備中です)</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 ユーザーページ</p>
+  </footer>
+
+  	<style type="">
+  		body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+#user-info {
+  text-align: center;
+  margin: 20px;
+  padding: 20px; /* パディングを追加 */
+}
+
+#user-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#user-info a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#user-info a:hover {
+  background-color: #555;
+}
+
+#user-posts {
+  margin: 20px;
+}
+
+#user-posts ul {
+  list-style: none;
+  padding: 0;
+}
+
+#user-posts li {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+  	</style>
+        <!-- admax -->
+<script src="https://adm.shinobi.jp/o/8fcd15a865aabb153770ee040deed235"></script>
+<!-- admax -->
+        <!-- admax -->
+<script src="https://adm.shinobi.jp/s/fa4d8254b63baa8e88c20355f9ee30d1"></script>
+<!-- admax -->
+  <script>
+  	
+
+  </script>
+</body>
+</html>
