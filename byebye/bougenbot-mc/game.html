@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<html lang="ja"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="robots" content="noindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>ダウンロード中</title> 
+<style> 
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+    animation: blink 1.5s infinite alternate;
+  }
+
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+
+  .text { 
+    margin-top: 1em; 
+    font-size: 1.5em;  
+  }
+</style> 
+</head> 
+<body> 
+
+<img src="logo.png" alt="Loading Logo" class="logo">
+<div class="text" id="loadingText">ゲームを開始中</div> 
+
+<script> 
+  const targetBaseUrl = "https://m1-bougenbot.dousabo2024.net/"; 
+  const ipParam = "ip=bougenbot-mc01.mirm0000.f5.si:58547"; 
+  const version = "1.18.2" 
+
+  // クエリパラメータから `username` を取得 
+  const urlParams = new URLSearchParams(window.location.search); 
+  let username = urlParams.get("username"); 
+
+  // `username` が指定されていなければ `bougenbot_guest[3桁の英数字]` を生成 
+  if (!username) { 
+    const randomStr = Math.random().toString(36).substring(2, 5); 
+    username = `bougenbot_${randomStr}`; 
+  } 
+
+  // 最終的な遷移先URLを作成 
+  const finalUrl = `${targetBaseUrl}?${ipParam}&version=${version}&lockConnect=true&username=${encodeURIComponent(username)}`; 
+
+  function tryLoad() { 
+    fetch(targetBaseUrl, { method: 'HEAD', mode: 'no-cors' }) 
+      .then(() => { 
+        window.location.href = finalUrl; 
+      }) 
+      .catch(error => { 
+        console.error("Error:", error); 
+      }); 
+  } 
+
+  // 2秒後にリダイレクトを試行 
+  setTimeout(tryLoad, 2000);
+
+  // `ゲームを開始中` のドットアニメーション
+  const loadingText = document.getElementById("loadingText");
+  let dotCount = 0;
+  
+  setInterval(() => {
+    dotCount = (dotCount + 1) % 10; // 0, 1, 2, 3のループ
+    loadingText.textContent = "ゲームを開始中" + ".".repeat(dotCount);
+  }, 500);
+
+</script> 
+
+</body> 
+</html>

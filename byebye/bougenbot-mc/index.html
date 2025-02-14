@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暴言BOT</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+            overflow: hidden;
+        }
+
+        .logo-text {
+            font-size: 4em;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            text-align: center;
+        }
+
+        iframe {
+            width: 98%;
+            height: 98%;
+            border: none;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="logo-text" id="logoText">暴言BOT</div>
+
+<iframe id="iframe" style="display:none;" src="login.html"></iframe>
+
+<script>
+    // ロゴの表示アニメーション
+    function showLogo() {
+        const logoText = document.getElementById("logoText");
+        logoText.style.opacity = 1; // 1秒かけて表示
+
+        setTimeout(() => {
+            logoText.style.opacity = 0; // 0.8秒かけて非表示
+        }, 1500); // 1秒表示、0.2秒待機後に非表示
+
+        // iframeを表示
+        setTimeout(() => {
+            document.getElementById("iframe").style.display = "block";
+        }, 2500); // 1.2秒後に iframe を表示
+    }
+
+    window.onload = showLogo;
+</script>
+
+</body>
+</html>

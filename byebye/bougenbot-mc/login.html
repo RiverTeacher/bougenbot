@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユーザー名入力</title>
+<style>
+  body { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    background-color: white; 
+    color: black; 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+  }
+
+  .container { 
+    background: #333; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); 
+    color: white;
+  }
+
+  .input-box { 
+    width: 200px; 
+    padding: 8px; 
+    font-size: 16px; 
+    text-align: center; 
+    border-radius: 5px; 
+    border: 1px solid white; 
+    background: #444; 
+    color: white; 
+    margin: 10px 0; 
+  }
+
+    .selected-position {
+    font-size: 12px;
+    color: #00ff00;
+    margin-top: 10px;
+  }
+
+  .switch-button, .submit-button, .color-button, .position-button { 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin: 10px 5px; 
+  }
+
+  .switch-button { 
+    background: #f39c12; 
+    color: white; 
+  }
+
+  .submit-button { 
+    background: #007bff; 
+    color: white; 
+  }
+
+  .submit-button:hover { 
+    background: #0056b3; 
+  }
+
+  .color-button, .position-button {
+    background: #ddd; 
+  }
+
+  .color-button:hover, .position-button:hover { 
+    background: #bbb; 
+  }
+
+  .captcha-box, .position-box {
+    margin: 15px 0; 
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>暴言BOTログインポータル</h2>
+  <input type="text" id="usernameInput" class="input-box" placeholder="ユーザー名を入力">
+  <p>※前回の続きから再開するには同じ名前を入力する必要があります<br>※データ破損の危険性があるのでウェブ版以外のアカウントと<br>同じ名前にはしないでください。</p>
+
+  <button class="switch-button" onclick="toggleCaptcha()">色の見え方で認証が難しい方はこちら</button>
+
+  <!-- 色認証 -->
+  <div class="captcha-box" id="colorCaptcha">
+    <p>機械的な操作でないことを確認するために色を一致させてください</p>
+    <p>下のボタンを押して右の色と一致させよ: <span class="color-task" id="colorTask">赤</span></p>
+    <button class="color-button" id="colorChangeButton" onclick="changeColor()">色を変更する</button>
+  </div>
+
+  <!-- 位置認証 -->
+  <div class="position-box hidden" id="positionCaptcha">
+    <p>指示された位置を覚えて正しく選択してください</p>
+    <button class="switch-button" onclick="startPositionTest()">スタート</button>
+    <p id="positionText"></p>
+    <div id="positionButtons" class="hidden">
+      <button class="position-button" onclick="checkPosition('ひだり')">ひだり</button>
+      <button class="position-button" onclick="checkPosition('まんなか')">まんなか</button>
+      <button class="position-button" onclick="checkPosition('みぎ')">みぎ</button>
+    </div>
+    <div id="selectionMessage"></div>
+
+  </div>
+
+  <button class="submit-button" onclick="validateForm()">決定</button><br>
+  <small>ログアウトするにはタブを閉じてください</small>
+</div>
+
+<script>
+  const colors = ["赤", "青", "緑", "黄色", "黒", "白"];
+  const colorMap = { "赤": "red", "青": "blue", "緑": "green", "黄色": "yellow", "黒": "black", "白": "white" };
+  let currentColor = "", targetColor = "";
+  let useColorCaptcha = true;
+
+  function toggleCaptcha() {
+    useColorCaptcha = !useColorCaptcha;
+    document.getElementById("colorCaptcha").classList.toggle("hidden");
+    document.getElementById("positionCaptcha").classList.toggle("hidden");
+  }
+
+  function setRandomColorTask() {
+    targetColor = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById("colorTask").textContent = targetColor;
+  }
+
+  function changeColor() {
+    let newColor;
+    do {
+      newColor = colors[Math.floor(Math.random() * colors.length)];
+    } while (colorMap[newColor] === currentColor);
+    currentColor = colorMap[newColor];
+    document.getElementById("colorChangeButton").style.backgroundColor = currentColor;
+  }
+
+  function validateForm() {
+    const inputField = document.getElementById("usernameInput");
+    const username = inputField.value.trim();
+    const regex = /^[a-zA-Z0-9]{4,16}$/;
+
+    if (!regex.test(username)) {
+      alert("ユーザー名は4～16文字の英数字のみです。再入力してください。");
+      inputField.value = "";
+      return;
+    }
+
+    if (useColorCaptcha) {
+      if (currentColor !== colorMap[targetColor]) {
+        alert("認証に失敗しました。\nERROR: 色が一致しませんでした");
+        location.reload();
+        return;
+      }
+    } else {
+      if (JSON.stringify(userInputPositions) !== JSON.stringify(correctPositions)) {
+        alert("認証に失敗しました。\nERROR: 位置が一致しませんでした");
+        location.reload();
+        return;
+      }
+    }
+
+    window.location.href = `game.html?username=${encodeURIComponent(username)}`;
+  }
+
+  let correctPositions = [];
+  let userInputPositions = [];
+
+  function startPositionTest() {
+    correctPositions = [];
+    userInputPositions = [];
+    document.getElementById("positionButtons").classList.add("hidden");
+    document.getElementById("positionText").textContent = "覚えてください...";
+
+    let positionOptions = ["ひだり", "まんなか", "みぎ"];
+    let i = 0;
+
+    function showPosition() {
+      if (i < 4) {
+        let randomPos = positionOptions[Math.floor(Math.random() * positionOptions.length)];
+        correctPositions.push(randomPos);
+
+        // 0.5秒表示
+        document.getElementById("positionText").textContent = randomPos;
+
+        setTimeout(() => {
+          // 0.2秒非表示
+          document.getElementById("positionText").textContent = "";
+          setTimeout(() => {
+            i++;
+            showPosition(); // 次の表示へ
+          }, 200);
+        }, 500);
+      } else {
+        document.getElementById("positionText").textContent = "選択してください";
+        document.getElementById("positionButtons").classList.remove("hidden");
+      }
+    }
+
+    showPosition();
+  }
+
+  function checkPosition(choice) {
+    userInputPositions.push(choice);
+    const selectionMessage = `${choice} を選択しました。`; // 選択メッセージ作成
+
+    // 小さく表示
+    const messageElement = document.createElement("p");
+    messageElement.classList.add("selected-position");
+    messageElement.textContent = selectionMessage;
+    document.getElementById("selectionMessage").appendChild(messageElement);
+
+    if (userInputPositions.length === 4) {
+      validateForm();
+    }
+  }
+
+  window.onload = () => {
+    setRandomColorTask();
+    changeColor();
+  };
+</script>
+
+</body>
+</html>
