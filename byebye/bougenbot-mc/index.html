@@ -32,21 +32,36 @@
 
         iframe {
             width: 98%;
-            height: 80%;
+            height: 98%;
             border: none;
-            position: relative;
-            top: 10px;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+            display: none;
         }
 
-        #fullscreen-btn {
-            margin-top: 10px;
+        #buttons {
+            display: none;
+            margin-top: 20px;
+        }
+
+        button {
             padding: 10px 20px;
             font-size: 1em;
             border: none;
             cursor: pointer;
-            background-color: #fff;
-            color: #222;
             border-radius: 5px;
+            margin: 5px;
+        }
+
+        #yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #no-btn {
+            background-color: #f44336;
+            color: white;
         }
     </style>
 
@@ -56,38 +71,50 @@
 
     <div class="logo-text" id="logoText">暴言BOT</div>
 
-    <iframe id="iframe" style="display:none;" src="login.html"></iframe>
+    <div id="buttons">
+        <button id="yes-btn">はい</button>
+        <button id="no-btn">いいえ</button>
+    </div>
 
-    <button id="fullscreen-btn" style="display:none;">全画面にする</button>
+    <iframe id="iframe" src="login.html"></iframe>
 
     <script>
         function showLogo() {
             const logoText = document.getElementById("logoText");
-            logoText.style.opacity = 1; 
+            logoText.style.opacity = 1;
 
             setTimeout(() => {
                 logoText.style.opacity = 0;
             }, 1500); 
 
             setTimeout(() => {
-                document.getElementById("iframe").style.display = "block";
-                document.getElementById("fullscreen-btn").style.display = "block";
+                document.getElementById("buttons").style.display = "block";
             }, 2500);
         }
 
         window.onload = showLogo;
 
-        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+        document.getElementById("yes-btn").addEventListener("click", function () {
             const iframe = document.getElementById("iframe");
+            iframe.style.display = "block";
+
             if (iframe.requestFullscreen) {
                 iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
+            } else if (iframe.mozRequestFullScreen) { 
                 iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            } else if (iframe.webkitRequestFullscreen) { 
                 iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
+            } else if (iframe.msRequestFullscreen) { 
                 iframe.msRequestFullscreen();
             }
+
+            document.getElementById("buttons").style.display = "none";
+        });
+
+        document.getElementById("no-btn").addEventListener("click", function () {
+            const iframe = document.getElementById("iframe");
+            iframe.style.display = "block";
+            document.getElementById("buttons").style.display = "none";
         });
     </script>
 
