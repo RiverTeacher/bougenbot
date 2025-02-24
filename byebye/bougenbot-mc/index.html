@@ -95,6 +95,11 @@
 
         window.onload = showLogo;
 
+        // ページが開かれた瞬間に縦画面かどうかを判定
+if (window.innerHeight > window.innerWidth) {
+    alert("横画面でのプレイを推奨します");
+}
+
         document.getElementById("yes-btn").addEventListener("click", function () {
             const iframe = document.getElementById("iframe");
             iframe.style.display = "block";
